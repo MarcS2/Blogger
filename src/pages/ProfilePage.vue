@@ -5,7 +5,8 @@
       <div class="col-12 d-flex align-items-center p-5">
         <img class="img-Pfp rounded-circle " :src="profile.picture" alt="">
         <h1 class="d-inline ms-5">{{ profile.name }}</h1>
-        <i class="mdi fs-2 ms-5 mdi-pen btn btn-outline-dark" title="edit profile"></i>
+        <i v-if="profile.creatorId == account.id" class="mdi fs-2 ms-5 mdi-pen btn btn-outline-dark"
+          title="edit profile"></i>
       </div>
       <div class="col-12 ps-5 pe-5">
         <p>{{ profile.bio }}</p>
@@ -56,7 +57,8 @@ export default {
     })
     return {
       blogs: computed(() => AppState.blogs),
-      profile: computed(() => AppState.profile)
+      profile: computed(() => AppState.profile),
+      account: computed(() => AppState.account)
     }
   }
 };
