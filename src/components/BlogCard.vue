@@ -14,7 +14,7 @@
       <p class="fs-5">{{ blog.body }}</p>
     </div>
     <div class="col-3">
-      <img class="img-blogThumbnail" :src="blog.imgUrl" alt="blog image">
+      <img class="img-blogThumbnail p-3 " :src="blog.imgUrl" alt="blog image">
     </div>
   </section>
 </template>

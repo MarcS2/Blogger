@@ -1,6 +1,9 @@
 <template>
   <div class="container-fluid">
     <section class="row">
+      <div class="col-12">
+        <PostForm />
+      </div>
       <div v-for="blog in blogs" :key="blog.blogId" class="col-12">
         <BlogCard :blog="blog" />
       </div>

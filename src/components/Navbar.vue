@@ -11,11 +11,8 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav me-auto">
-        <li>
-          <router-link :to="{ name: 'About' }" class="btn text-success lighten-30 selectable text-uppercase">
-            About
-          </router-link>
-        </li>
+        <button v-if="account.id" class="btn btn-outline-dark text-light" data-bs-toggle="modal"
+          data-bs-target="#form-modal">Post<i class="mdi mdi-plus"></i></button>
       </ul>
       <!-- LOGIN COMPONENT HERE -->
       <Login />
@@ -24,10 +21,14 @@
 </template>
 
 <script>
+import { computed } from "vue";
 import Login from './Login.vue';
+import { AppState } from "../AppState";
 export default {
   setup() {
-    return {}
+    return {
+      account: computed(() => AppState.account)
+    }
   },
   components: { Login }
 }

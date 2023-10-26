@@ -10,6 +10,13 @@ class BlogService {
     AppState.blogs = blogs
   }
 
+  async createPost(blogData) {
+    const res = await api.post('api/blogs', blogData)
+    const newPost = new Blog(res.data)
+    logger.log('[AppState] createPost() post made', newPost)
+    AppState.blogs.push(newPost)
+  }
+
   clearData() {
     AppState.blogs = []
   }
